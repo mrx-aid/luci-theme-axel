@@ -38,13 +38,13 @@
  </div>
  <header class="ax-header">
   <a class="brand ax-brand" href="{{ dispatcher.build_url('admin/status/overview') }}" aria-label="{{ atlas ? 'ATLAS' : 'AXEL Mesh' }}">
-   {% if (atlas): %}<img src="/luci-static/atlas/atlas-logo-white.png" width="188" height="40" alt="ATLAS">{% else: %}<span class="ax-mark" aria-hidden="true">A</span><span>AXEL <small>MESH</small></span>{% endif %}
+   {% if (atlas): %}<img src="/luci-static/atlas/atlas-logo-white.png" width="188" height="40" alt="ATLAS">{% else %}<span class="ax-mark" aria-hidden="true">A</span><span>AXEL <small>MESH</small></span>{% endif %}
   </a>
   <button class="ax-nav-toggle" type="button" aria-expanded="false" aria-controls="topmenu" data-ax-nav>{{ _('Menu') }}</button>
   <ul class="nav" id="topmenu" style="display:none"></ul>
   <div id="indicators" class="pull-right"></div>
   <details class="ax-account">
-   <summary aria-label="{{ _('Account menu') }}">{% if (atlas): %}<img src="/luci-static/atlas/preload.png" width="30" height="30" alt="">{% else: %}<span class="ax-account-icon" aria-hidden="true">A</span>{% endif %}<span>LuCI</span><span class="ax-chevron" aria-hidden="true"></span></summary>
+   <summary aria-label="{{ _('Account menu') }}">{% if (atlas): %}<img src="/luci-static/atlas/preload.png" width="30" height="30" alt="">{% else %}<span class="ax-account-icon" aria-hidden="true">A</span>{% endif %}<span>LuCI</span><span class="ax-chevron" aria-hidden="true"></span></summary>
    <div class="ax-account-panel">
     <div class="ax-account-heading">{% if (atlas): %}<img src="/luci-static/atlas/preload.png" width="60" height="60" alt="">{% endif %}<div><strong>{{ atlas ? 'ATLAS' : 'AXEL Mesh' }}</strong><small>{{ striptags(boardinfo.hostname ?? 'OpenWrt') }}</small><span class="ax-role">{{ _('Router administration') }}</span></div></div>
     {% if (dispatcher.lookup('admin/system/admin')): %}<a href="{{ dispatcher.build_url('admin/system/admin') }}">{{ _('Administration') }}</a>{% endif %}
@@ -65,7 +65,7 @@
   </div>{% endif %}
   <noscript><div class="alert-message warning"><h4>{{ _('JavaScript required!') }}</h4><p>{{ _('You must enable JavaScript in your browser or LuCI will not work properly.') }}</p></div></noscript>
   <div id="tabmenu" style="display:none"></div>
- {% else: %}
+ {% else %}
  <main id="maincontent" class="container ax-login"><div class="ax-login-brand">{{ atlas ? 'ATLAS' : 'AXEL Mesh' }} <small>OPENWRT</small></div>
  <button class="ax-mode" type="button" data-ax-mode aria-label="{{ _('Toggle light / dark mode') }}">Light / Dark</button>
  {% endif %}

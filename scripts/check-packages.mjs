@@ -19,6 +19,7 @@ for(const filename of ['mode.js','shell.js']) {
   assert.doesNotMatch(js,/fetch\(|XMLHttpRequest|eval\(/);
 }
 const header=read(core+'ucode/template/themes/axel-core/header.ut');
+for(const file of ['header.ut','footer.ut']) assert.doesNotMatch(read(core+'ucode/template/themes/axel-core/'+file),/\{%\s*else\s*:/,'ucode else has no colon');
 for(const hook of ['No password set!','initramfs','JavaScript required!','id="topmenu"','id="tabmenu"','id="indicators"','id="maincontent"']) assert.ok(header.includes(hook),hook);
 assert.match(read(core+'ucode/template/themes/axel-core/footer.ut'),/L.require\('menu-bootstrap'\)/);
 const css=read(core+'htdocs/luci-static/axel-core/theme.css');

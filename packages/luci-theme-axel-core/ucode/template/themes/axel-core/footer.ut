@@ -7,7 +7,7 @@
   <ul class="breadcrumb pull-right" id="modemenu" style="display:none"></ul>
  </footer>
  <script>L.require('menu-bootstrap')</script>
-{% else: %}</main>{% endif %}
+{% else %}</main>{% endif %}
  <script src="/luci-static/axel-core/shell.js"></script>
 </body>
 </html>
