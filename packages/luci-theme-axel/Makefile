@@ -1,6 +1,8 @@
 include $(TOPDIR)/rules.mk
 PKG_VERSION:=0.2.0
-PKG_RELEASE:=2
+PKG_RELEASE:=3
+LUCI_MAINTAINER:=Alexandr Azimov
+LUCI_URL:=https://github.com/mrx-aid/luci-theme-axel
 LUCI_TITLE:=AXEL Mesh theme with light and dark modes
 LUCI_DEPENDS:=+luci-theme-axel-core
 LUCI_PKGARCH:=all
