@@ -1,6 +1,6 @@
 include $(TOPDIR)/rules.mk
 PKG_VERSION:=0.2.0
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 LUCI_TITLE:=ATLAS Heritage theme with light and dark modes
 LUCI_DEPENDS:=+luci-theme-axel-core
 LUCI_PKGARCH:=all

@@ -29,5 +29,26 @@ done
 mkdir -p "$artifact_dir"
 find bin/packages -type f \( -name 'luci-theme-axel-*.apk' -o -name 'luci-theme-atlas-*.apk' \) -exec cp '{}' "$artifact_dir/" \;
 test "$(find "$artifact_dir" -maxdepth 1 -name '*.apk' | wc -l)" -eq 3
+audit_dir=$(mktemp -d)
+for package in "$artifact_dir"/*.apk; do
+  staging_dir/host/bin/apk --allow-untrusted extract --destination "$audit_dir" "$package"
+  staging_dir/host/bin/apk adbdump "$package" > "$artifact_dir/$(basename "$package").manifest.txt"
+done
+# Compile the installed template sources with the release's native ucode compiler.
+# Dynamic luci.core import is resolved only on the router; no template is executed here.
+./scripts/feeds install -p base ucode
+make -j2 package/feeds/base/ucode/host/compile V=s
+ucode_bin=$(find staging_dir/host staging_dir/hostpkg -path '*/bin/ucode' -type f -print -quit)
+test -n "$ucode_bin"
+while IFS= read -r template; do
+  "$ucode_bin" -T -cdynlink=luci.core -o "$sdk_work/template-check.uc" "$template"
+done < <(find "$audit_dir/usr/share/ucode/luci/template/themes" -type f -name '*.ut')
+cmp "$source_dir/packages/luci-theme-axel-core/htdocs/luci-static/axel-core/theme.css" "$audit_dir/www/luci-static/axel-core/theme.css"
+for name in atlas axel; do
+  test -f "$audit_dir/etc/uci-defaults/90_luci-theme-$name"
+done
+test ! -e "$audit_dir/etc/config/network"
+test ! -e "$audit_dir/etc/config/firewall"
+printf '%s\n' 'PASS: three APKs extracted without installation; ucode templates compiled; installed CSS matches source; no network/firewall configuration shipped.' > "$artifact_dir/package-audit.txt"
 cd "$artifact_dir"
 sha256sum ./*.apk > SHA256SUMS

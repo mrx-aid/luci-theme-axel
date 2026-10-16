@@ -100,7 +100,7 @@ input:disabled,select:disabled,textarea:disabled{opacity:.6}
 .alert-message.danger,.alert-message.error{background:#ffe9ec;border-color:#e9a0ab;color:#942b3d}
 [data-darkmode=true] .alert-message.warning{background:#372e1b;border-color:#715d2b;color:#f4d891}
 [data-darkmode=true] .alert-message.danger,[data-darkmode=true] .alert-message.error{background:#3b202b;border-color:#75404e;color:#ffb3c1}
-.modal{background:var(--ax-panel);color:var(--ax-fg);border:1px solid var(--ax-line);border-radius:var(--ax-radius);padding:24px;box-shadow:0 20px 80px #0007;max-width:min(850px,calc(100vw - 24px));max-height:calc(100dvh - 40px);overflow:auto}
+.modal{background:var(--ax-panel);color:var(--ax-fg);border:1px solid var(--ax-line);border-radius:var(--ax-radius);padding:24px;margin:20px auto;min-width:0;box-shadow:0 20px 80px #0007;max-width:min(850px,calc(100vw - 24px));max-height:calc(100dvh - 40px);overflow:auto}
 .modal h4{font-size:20px;color:var(--ax-fg);margin-top:0}
 .modal .right{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:8px;margin-top:18px}
 .modal .cbi-value-title{flex-basis:180px}
@@ -154,7 +154,7 @@ footer.ax-footer{background:transparent;color:var(--ax-muted);border-top:1px sol
  #maincontent h2{font-size:23px;margin-bottom:18px}.cbi-section,.cbi-map>fieldset,.cbi-section-node{padding:15px;margin:14px 0;border-radius:var(--ax-radius)}
  .cbi-value{display:block;padding:11px 0}.cbi-value-title{display:block;width:100%;padding:0 0 7px}.cbi-value-field{display:block;width:100%}
  .cbi-value-field input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]),.cbi-value-field select{width:100%}
- .cbi-tabmenu li a,.tabs li a{padding:10px;font-size:12px}.modal{padding:18px;max-height:calc(100dvh - 24px)}
+ .cbi-tabmenu li a,.tabs li a{padding:10px;font-size:12px}.modal{padding:18px;margin:12px auto;max-height:calc(100dvh - 24px)}
  .vpn-tunneling .table,.vpn-tunneling .table tbody{display:block}.vpn-tunneling .table .table-titles{display:none}
  .vpn-tunneling .table .tr:not(.table-titles){display:block;padding:12px 0;border-bottom:1px solid var(--ax-line)}
  .vpn-tunneling .table .td{display:block;width:100%;padding:7px 0;border:0;text-align:left}
