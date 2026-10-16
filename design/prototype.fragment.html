@@ -1,0 +1,123 @@
+<style>
+#axel-theme-study{font-family:Inter,"Segoe UI",sans-serif;color:#edf3fa;font-size:14px;line-height:1.5}
+#axel-theme-study *{box-sizing:border-box}
+#axel-theme-study .ax-window{--ax-bg:#101923;--ax-panel:#182530;--ax-ink:#edf3fa;--ax-muted:#a5b6c5;--ax-line:#2d3e4c;--ax-accent:#78e6ce;--ax-radius:18px;background:var(--ax-bg);color:var(--ax-ink);min-height:760px;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:190px minmax(0,1fr)}
+#axel-theme-study .ax-window[data-style=atlas]{--ax-bg:#f1f0eb;--ax-panel:#fbfbf7;--ax-ink:#27382f;--ax-muted:#58685e;--ax-line:#d4dbd1;--ax-accent:#2d694d;--ax-radius:8px;display:flex;flex-direction:column}
+#axel-theme-study .ax-window[data-style=mrx]{--ax-bg:#141416;--ax-panel:#1d1d20;--ax-ink:#f4f1f1;--ax-muted:#b8b0b0;--ax-line:#343035;--ax-accent:#ff8b7e;--ax-radius:8px;grid-template-columns:146px minmax(0,1fr)}
+#axel-theme-study button,#axel-theme-study input{font:inherit}
+#axel-theme-study button{color:inherit;background:none;border:0;cursor:pointer}
+#axel-theme-study button:focus-visible{outline:2px solid var(--ax-accent);outline-offset:3px}
+#axel-theme-study .ax-side{padding:26px 18px;border-right:1px solid var(--ax-line);display:flex;flex-direction:column;gap:28px;background:var(--ax-panel)}
+#axel-theme-study .ax-brand{font-weight:700;letter-spacing:.02em;font-size:16px;display:flex;align-items:center;gap:9px;white-space:nowrap}
+#axel-theme-study .ax-brand em{color:var(--ax-accent);font-style:normal}
+#axel-theme-study .ax-brand small{font-size:10px;letter-spacing:0;display:block;font-weight:400;color:var(--ax-muted)}
+#axel-theme-study .ax-mark{display:grid;place-items:center;flex-shrink:0;width:28px;height:28px;border:1px solid var(--ax-accent);border-radius:8px;color:var(--ax-accent);font-size:16px;letter-spacing:0}
+#axel-theme-study .ax-nav{display:flex;flex-direction:column;gap:7px}
+#axel-theme-study .ax-nav button{text-align:left;padding:11px 12px;border-radius:10px;color:var(--ax-muted);display:flex;align-items:center;gap:10px}
+#axel-theme-study .ax-nav button[aria-pressed=true]{color:var(--ax-accent);background:color-mix(in srgb,var(--ax-accent) 12%,transparent)}
+#axel-theme-study .ax-nav button span{font-size:10px;opacity:.8;font-family:ui-monospace,monospace}
+#axel-theme-study .ax-device{margin-top:auto;padding-top:18px;border-top:1px solid var(--ax-line);font-size:12px;color:var(--ax-muted)}
+#axel-theme-study .ax-device strong{display:block;color:var(--ax-ink);font-weight:500}
+#axel-theme-study .ax-main{min-width:0;padding:26px 28px 20px;display:flex;flex-direction:column}
+#axel-theme-study .ax-top{display:flex;gap:16px;justify-content:space-between;align-items:center;padding-bottom:25px;color:var(--ax-muted);font-size:12px;flex-wrap:wrap}
+#axel-theme-study .ax-top button{border:1px solid var(--ax-line);padding:7px 12px;border-radius:7px}
+#axel-theme-study .ax-hero{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:22px;flex-wrap:wrap}
+#axel-theme-study h2{font-size:30px;line-height:1.15;font-weight:550;letter-spacing:-.035em;margin:5px 0 9px;color:inherit}
+#axel-theme-study h3{font-size:14px;font-weight:550;line-height:1.4;margin:0;color:inherit}
+#axel-theme-study p{margin:0;color:var(--ax-muted)}
+#axel-theme-study .ax-eyebrow{font-size:10px;font-weight:600;letter-spacing:.16em;color:var(--ax-accent);text-transform:uppercase}
+#axel-theme-study .ax-status{font-size:12px;display:flex;gap:7px;align-items:center;white-space:nowrap}
+#axel-theme-study .ax-status:before{content:"";width:6px;height:6px;display:block;background:var(--ax-accent);border-radius:50%}
+#axel-theme-study .ax-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:14px}
+#axel-theme-study .ax-panel{padding:20px;border-radius:var(--ax-radius);background:var(--ax-panel);min-width:0}
+#axel-theme-study .ax-panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+#axel-theme-study .ax-panel-head small{font-size:11px;color:var(--ax-muted)}
+#axel-theme-study .ax-throughput{display:flex;gap:32px;flex-wrap:wrap;margin:20px 0 2px}
+#axel-theme-study .ax-throughput strong{font-size:28px;font-weight:500;letter-spacing:-.035em;display:block}
+#axel-theme-study .ax-throughput small{font-size:11px;color:var(--ax-muted)}
+#axel-theme-study .ax-throughput .ax-up strong{color:var(--ax-muted)}
+#axel-theme-study .ax-chart{width:100%;height:96px;display:block;overflow:visible;margin-top:18px}
+#axel-theme-study .ax-chart .ax-trace{fill:none;stroke:var(--ax-accent);stroke-width:2;vector-effect:non-scaling-stroke}
+#axel-theme-study .ax-chart .ax-gridline{stroke:var(--ax-line);stroke-width:1}
+#axel-theme-study .ax-axis{display:flex;justify-content:space-between;font-size:10px;color:var(--ax-muted);margin-top:8px}
+#axel-theme-study .ax-list{display:flex;flex-direction:column;gap:0}
+#axel-theme-study .ax-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--ax-line);font-size:12px}
+#axel-theme-study .ax-row:last-child{border-bottom:0}
+#axel-theme-study .ax-row small{display:block;color:var(--ax-muted);font-size:11px}
+#axel-theme-study .ax-row b{font-weight:500}
+#axel-theme-study .ax-caption{font-size:12px;color:var(--ax-muted)}
+#axel-theme-study .ax-meter{height:5px;background:var(--ax-line);border-radius:4px;overflow:hidden;margin:9px 0 16px}
+#axel-theme-study .ax-meter span{height:100%;display:block;background:var(--ax-accent)}
+#axel-theme-study .ax-text-action{font-size:12px;color:var(--ax-accent);padding:0}
+#axel-theme-study .ax-footer{margin-top:auto;padding-top:24px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:10px;color:var(--ax-muted)}
+#axel-theme-study .ax-footer b{color:var(--ax-ink);font-weight:400}
+#axel-theme-study .ax-login{min-height:600px;display:grid;place-items:center}
+#axel-theme-study .ax-login-box{width:min(360px,100%);padding:30px;border-radius:var(--ax-radius);background:var(--ax-panel)}
+#axel-theme-study .ax-login-box h2{font-size:26px;margin:18px 0}
+#axel-theme-study .ax-login-box label{display:block;margin-top:16px;font-size:12px;color:var(--ax-muted)}
+#axel-theme-study input{margin-top:7px;width:100%;border:1px solid var(--ax-line);border-radius:8px;padding:12px;background:var(--ax-bg);color:var(--ax-ink);font-size:16px}
+#axel-theme-study .ax-primary{background:var(--ax-accent);color:var(--ax-bg);padding:12px 16px;border-radius:8px;font-weight:600;width:100%;margin-top:22px}
+#axel-theme-study .ax-login-box p{font-size:11px;margin-top:16px}
+#axel-theme-study .ax-full{grid-column:1/-1}
+#axel-theme-study .ax-radio{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px}
+#axel-theme-study .ax-band{font-size:24px;letter-spacing:-.04em;color:var(--ax-accent);min-width:65px}
+#axel-theme-study [hidden]{display:none!important}
+#axel-theme-study [data-style=atlas] .ax-side{border-right:0;border-bottom:1px solid var(--ax-line);flex-direction:row;align-items:center;padding:20px 28px;gap:30px;flex-wrap:wrap}
+#axel-theme-study [data-style=atlas] .ax-mark{border-radius:0;background:var(--ax-accent);color:var(--ax-panel)}
+#axel-theme-study [data-style=atlas] .ax-nav{flex-direction:row;margin-left:auto;flex-wrap:wrap}
+#axel-theme-study [data-style=atlas] .ax-nav button{border-radius:0;padding:8px 12px}
+#axel-theme-study [data-style=atlas] .ax-nav button[aria-pressed=true]{box-shadow:inset 0 -2px var(--ax-accent);background:none}
+#axel-theme-study [data-style=atlas] .ax-nav span,#axel-theme-study [data-style=atlas] .ax-device{display:none}
+#axel-theme-study [data-style=atlas] .ax-main{flex:1;padding:26px 32px}
+#axel-theme-study [data-style=atlas] h2{font-family:Georgia,serif;font-weight:400;font-size:36px}
+#axel-theme-study [data-style=atlas] .ax-grid{grid-template-columns:1fr 1fr}
+#axel-theme-study [data-style=atlas] .ax-panel{border:1px solid var(--ax-line)}
+#axel-theme-study [data-style=atlas] .ax-traffic{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+#axel-theme-study [data-style=atlas] .ax-traffic .ax-panel-head{grid-column:1/-1}
+#axel-theme-study [data-style=atlas] .ax-traffic .ax-axis{grid-column:2}
+#axel-theme-study [data-style=mrx] .ax-side{background:#191719;padding:24px 12px}
+#axel-theme-study [data-style=mrx] .ax-brand{font-size:24px;letter-spacing:-.06em;justify-content:center}
+#axel-theme-study [data-style=mrx] .ax-mark{display:none}
+#axel-theme-study [data-style=mrx] .ax-nav button{font-size:12px;border-radius:5px;padding:10px 8px}
+#axel-theme-study [data-style=mrx] .ax-main{padding:24px}
+#axel-theme-study [data-style=mrx] .ax-grid{grid-template-columns:1fr 1fr}
+#axel-theme-study [data-style=mrx] .ax-traffic{grid-column:1/-1;order:3}
+#axel-theme-study [data-style=mrx] .ax-hero{border-bottom:1px solid var(--ax-line);padding-bottom:20px}
+#axel-theme-study [data-style=mrx] .ax-throughput{float:right;margin:0;gap:24px}
+#axel-theme-study [data-style=mrx] .ax-chart{clear:both;height:80px}
+#axel-theme-study [data-style=mrx] h2{font-weight:650;font-size:32px}
+@media(max-width:760px){#axel-theme-study .ax-window,#axel-theme-study .ax-window[data-style=mrx]{grid-template-columns:1fr;min-height:1080px}#axel-theme-study .ax-window[data-style=atlas]{min-height:1080px}#axel-theme-study .ax-side,#axel-theme-study [data-style=mrx] .ax-side{flex-direction:row;align-items:center;border-right:0;border-bottom:1px solid var(--ax-line);padding:16px;gap:16px;flex-wrap:wrap}#axel-theme-study .ax-nav{flex-direction:row;flex-wrap:wrap;margin-left:auto}#axel-theme-study .ax-nav button{padding:8px}#axel-theme-study .ax-nav span,#axel-theme-study .ax-device{display:none}#axel-theme-study .ax-main,#axel-theme-study [data-style=atlas] .ax-main,#axel-theme-study [data-style=mrx] .ax-main{padding:20px}#axel-theme-study .ax-window .ax-grid{grid-template-columns:1fr}#axel-theme-study .ax-window .ax-traffic{display:block}#axel-theme-study .ax-window .ax-throughput{float:none}#axel-theme-study .ax-top{padding-bottom:20px}#axel-theme-study .ax-login{min-height:780px}}
+@media(max-width:420px){#axel-theme-study .ax-window{min-height:1180px}#axel-theme-study .ax-window .ax-nav{margin-left:0;width:100%;justify-content:space-between}#axel-theme-study .ax-nav button{font-size:12px}#axel-theme-study .ax-main,#axel-theme-study [data-style=atlas] .ax-main,#axel-theme-study [data-style=mrx] .ax-main{padding:16px}#axel-theme-study .ax-radio{grid-template-columns:1fr}.ax-status{white-space:normal}}
+@media(pointer:coarse){#axel-theme-study button{min-height:44px}}
+</style>
+<div id="axel-theme-study">
+ <div class="viz-carousel" aria-label="Варианты тем OpenWrt" data-previous-label="Назад" data-next-label="Вперёд">
+  <section data-variant="AXEL Mesh"><div class="ax-window" data-style="axel" aria-label="AXEL Mesh — оформление"></div></section>
+  <section data-variant="ATLAS" hidden><div class="ax-window" data-style="atlas" aria-label="ATLAS — оформление"></div></section>
+  <section data-variant="MRx" hidden><div class="ax-window" data-style="mrx" aria-label="MRx — оформление"></div></section>
+ </div>
+</div>
+<script>
+(()=>{
+ const root=document.getElementById('axel-theme-study');
+ const titles={axel:'AXEL <em>Mesh</em>',atlas:'ATLAS',mrx:'MR<em>x</em>'};
+ const chart=`<svg class="ax-chart" viewBox="0 0 500 100" preserveAspectRatio="none" role="img" aria-label="Демонстрационный график входящего трафика за минуту"><path class="ax-gridline" d="M0 20H500 M0 60H500 M0 99H500"/><path class="ax-trace" d="M0 80L20 77 40 79 60 66 80 72 100 42 120 55 140 53 160 65 180 32 200 40 220 27 240 42 260 40 280 51 300 30 320 35 340 14 360 31 380 28 400 40 420 20 440 29 460 17 480 23 500 16"/></svg>`;
+ const traffic=`<section class="ax-panel ax-traffic"><div class="ax-panel-head"><h3>Трафик WAN</h3><small>Последняя минута</small></div><div class="ax-throughput"><div><small>Приём · Мбит/с</small><strong>84.6</strong></div><div class="ax-up"><small>Передача · Мбит/с</small><strong>12.8</strong></div></div>${chart}<div class="ax-axis"><span>−60 с</span><span>Сейчас</span></div></section>`;
+ const wireless=`<section class="ax-panel"><div class="ax-panel-head"><h3>Беспроводная сеть</h3><button class="ax-text-action" data-page="wifi">Подробнее →</button></div><div class="ax-list"><div class="ax-row"><div><b>Дом · 5 ГГц</b><small>Wi-Fi 6 · канал 36</small></div><b>7 клиентов</b></div><div class="ax-row"><div><b>Дом · 2.4 ГГц</b><small>Wi-Fi 6 · канал 6</small></div><b>5 клиентов</b></div></div><div class="ax-caption" style="margin-top:14px">WPA2/WPA3 · демонстрация</div></section>`;
+ const system=`<section class="ax-panel"><div class="ax-panel-head"><h3>Ресурсы</h3><button class="ax-text-action" data-page="system">Система →</button></div><div class="ax-row"><span>Память</span><b>108 / 512 МБ</b></div><div class="ax-meter"><span style="width:21%"></span></div><div class="ax-row"><span>Хранилище</span><b>8 / 44 МБ</b></div><div class="ax-meter"><span style="width:18%"></span></div><div class="ax-caption">Время работы · 2 дня 04 ч</div></section>`;
+ const overview=`<div class="ax-hero"><div><div class="ax-eyebrow">Состояние сети</div><h2>Всё под контролем.</h2><p>Домашняя сеть. Один взгляд на главное.</p></div><span class="ax-status">Интернет подключён</span></div><div class="ax-grid">${traffic}${wireless}${system}</div>`;
+ const wifi=`<div class="ax-hero"><div><div class="ax-eyebrow">Беспроводная сеть</div><h2>Связь без проводов.</h2><p>Радиомодули и подключённые устройства.</p></div></div><div class="ax-grid"><section class="ax-panel ax-full ax-radio"><div class="ax-band">5 ГГц</div><div><h3>Дом · основной</h3><p>802.11ax · 80 МГц · канал 36</p></div><span class="ax-status">7 клиентов</span></section><section class="ax-panel ax-full ax-radio"><div class="ax-band">2.4 ГГц</div><div><h3>Дом · устройства</h3><p>802.11ax · 20 МГц · канал 6</p></div><span class="ax-status">5 клиентов</span></section><section class="ax-panel ax-full"><div class="ax-panel-head"><h3>Подключённые устройства</h3><small>Примеры</small></div><div class="ax-row"><div><b>Рабочий компьютер</b><small>5 ГГц</small></div><b>−48 dBm</b></div><div class="ax-row"><div><b>Телефон</b><small>5 ГГц</small></div><b>−56 dBm</b></div><div class="ax-row"><div><b>Умная колонка</b><small>2.4 ГГц</small></div><b>−62 dBm</b></div></section></div>`;
+ const sys=`<div class="ax-hero"><div><div class="ax-eyebrow">Система</div><h2>Основа вашей сети.</h2><p>Тема меняет интерфейс, не настройки роутера.</p></div></div><div class="ax-grid">${system}<section class="ax-panel"><div class="ax-panel-head"><h3>Устройство</h3></div><div class="ax-row"><span>Платформа</span><b>OpenWrt 25.12</b></div><div class="ax-row"><span>Интерфейс</span><b>LuCI</b></div><div class="ax-row"><span>Архитектура</span><b>ARM64</b></div></section><section class="ax-panel ax-full"><div class="ax-panel-head"><h3>Понятное управление</h3></div><p>Штатные формы, предупреждения и подтверждения LuCI остаются на месте. Изменения сети не применяются без подтверждения.</p></section></div>`;
+ root.querySelectorAll('.ax-window').forEach(win=>{
+  const style=win.dataset.style;
+  win.innerHTML=`<aside class="ax-side"><div class="ax-brand"><span class="ax-mark">${style==='atlas'?'A':'A.'}</span><div>${titles[style]}<small>OPENWRT INTERFACE</small></div></div><nav class="ax-nav" aria-label="Разделы ${style}"><button data-page="overview" aria-pressed="true"><span>01</span> Обзор</button><button data-page="wifi" aria-pressed="false"><span>02</span> Wi-Fi</button><button data-page="system" aria-pressed="false"><span>03</span> Система</button></nav><div class="ax-device"><strong>Домашний роутер</strong>LuCI · локальный интерфейс</div></aside><main class="ax-main"><header class="ax-top"><span>Концепт 01 · демонстрационные данные</span><button data-login="true">Экран входа</button></header><div class="ax-content">${overview}</div><footer class="ax-footer"><span>OpenWrt / LuCI</span><span>Designed by <b>Alexandr Azimov</b></span></footer></main>`;
+  const views={overview,wifi,system:sys};
+  win.addEventListener('click',event=>{
+   const button=event.target.closest('button'); if(!button)return;
+   if(button.dataset.page){win.querySelector('.ax-content').innerHTML=views[button.dataset.page];win.querySelectorAll('.ax-nav button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.page===button.dataset.page)));}
+   if(button.dataset.login){win.querySelector('.ax-content').innerHTML=`<div class="ax-login"><section class="ax-login-box"><div class="ax-eyebrow">${style==='axel'?'AXEL MESH':style.toUpperCase()}</div><h2>Добро пожаловать.</h2><p>Управление вашей домашней сетью</p><label>Пользователь<input value="root" readonly aria-label="Демонстрационный пользователь"></label><label>Пароль<input value="Только макет" disabled aria-label="Ввод пароля отключён в макете"></label><button class="ax-primary" data-page="overview">Открыть демонстрацию →</button><p>Это макет. Пароли не вводятся и не отправляются.</p></section></div>`;win.querySelectorAll('.ax-nav button').forEach(b=>b.setAttribute('aria-pressed','false'));}
+  });
+  if(globalThis.Tweak){const initial={radius:style==='axel'?18:8};const tweak=new Tweak({container:win,onChange:()=>win.style.setProperty('--ax-radius',initial.radius+'px')});tweak.addSlider(initial,'radius',{min:0,max:24,step:2,unit:'px',label:'Скругление панелей'});}
+ });
+})();
+</script>
