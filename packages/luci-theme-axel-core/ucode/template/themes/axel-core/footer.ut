@@ -1,0 +1,13 @@
+{# Adapted from LuCI Bootstrap footer, Apache-2.0. Preserve LuCI attribution. #}
+{% if (!blank_page): %}
+ </div>
+ <footer class="ax-footer">
+  <span>Powered by <a href="https://github.com/openwrt/luci" target="_blank" rel="noreferrer">{{ version.luciname }} ({{ version.luciversion }})</a> / <a href="{{ entityencode(version.disturl ?? '#', true) }}" target="_blank" rel="noreferrer">{{ version.distname }} {{ version.distversion }}</a>{% if (lua_active): %} / {{ _('Lua compatibility mode active') }}{% endif %}</span>
+  <a class="ax-credit" href="https://mrx-aid.github.io/" target="_blank" rel="noreferrer">Designed by Alexandr Azimov</a>
+  <ul class="breadcrumb pull-right" id="modemenu" style="display:none"></ul>
+ </footer>
+ <script>L.require('menu-bootstrap')</script>
+{% else: %}</main>{% endif %}
+ <script src="/luci-static/axel-core/shell.js"></script>
+</body>
+</html>

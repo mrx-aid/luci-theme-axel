@@ -1,0 +1,3 @@
+/* Compatibility asset for LuCI's theme selector. The shared header loads these. */
+@import url('/luci-static/bootstrap/cascade.css');
+@import url('/luci-static/axel-core/theme.css');
