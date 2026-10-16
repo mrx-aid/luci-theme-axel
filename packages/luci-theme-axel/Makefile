@@ -14,3 +14,5 @@ define Package/luci-theme-axel/postrm
 exit 0
 endef
 include ../../luci.mk
+
+# call BuildPackage - OpenWrt buildroot signature (implementation is in luci.mk)

@@ -17,6 +17,9 @@ for name in luci-theme-axel-core luci-theme-atlas luci-theme-axel; do
   cp -a "$source_dir/packages/$name/." "feeds/luci/themes/$name/"
 done
 ./scripts/feeds update -i luci
+for name in luci-theme-axel-core luci-theme-atlas luci-theme-axel; do
+  grep -q "^Package: $name\$" feeds/luci.index
+done
 ./scripts/feeds install -p luci luci-theme-axel-core luci-theme-atlas luci-theme-axel
 printf '%s\n' 'CONFIG_PACKAGE_luci-theme-axel-core=m' 'CONFIG_PACKAGE_luci-theme-atlas=m' 'CONFIG_PACKAGE_luci-theme-axel=m' 'CONFIG_ALL_NONSHARED=n' 'CONFIG_ALL_KMODS=n' 'CONFIG_ALL=n' 'CONFIG_LUCI_JSMIN=n' 'CONFIG_LUCI_CSSTIDY=n' 'CONFIG_LUCI_UTMIN=n' >> .config
 make defconfig

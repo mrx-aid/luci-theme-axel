@@ -3,6 +3,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 const read=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const core='packages/luci-theme-axel-core/';
+for(const name of ['axel-core','axel','atlas']) assert.match(read('packages/luci-theme-'+name+'/Makefile'),/call BuildPackage/,'SDK scan marker');
 for(const name of ['axel','atlas']) {
   const path='packages/luci-theme-'+name+'/';
   assert.match(read(path+'Makefile'),/\+luci-theme-axel-core/);

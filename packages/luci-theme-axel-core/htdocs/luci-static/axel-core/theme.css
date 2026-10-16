@@ -143,7 +143,7 @@ footer.ax-footer{background:transparent;color:var(--ax-muted);border-top:1px sol
  .ax-header.ax-nav-open #topmenu,[data-axel-theme=axel] .ax-header.ax-nav-open #topmenu{display:flex!important}
  .ax-header #topmenu>li>a,[data-axel-theme=axel] .ax-header #topmenu>li>a{padding:12px 14px;font-size:13px;border-radius:5px}
  .ax-header .dropdown-menu,[data-axel-theme=axel] .ax-header .dropdown-menu{position:static;left:auto;top:auto;box-shadow:none;margin:2px 0 6px 12px;min-width:0;width:auto}
- .ax-account-panel,[data-axel-theme=axel] .ax-account-panel{top:calc(100% + 12px);bottom:auto;left:auto;right:0}
+ .ax-account-panel,[data-axel-theme=axel] .ax-account-panel{top:calc(100% + 12px);bottom:auto;left:auto;right:0;max-width:calc(100vw - 48px)}
  .ax-account-panel::before,[data-axel-theme=axel] .ax-account-panel::before{top:-6px;bottom:auto;left:auto;right:20px;transform:rotate(45deg)}
  #maincontent.container,[data-axel-theme=axel] #maincontent.container:not(.ax-login){margin:0;padding:24px 16px;min-height:calc(100vh - 230px)}
  footer.ax-footer,[data-axel-theme=axel] footer.ax-footer{margin-left:0;padding:20px 16px;justify-content:center;text-align:center}
