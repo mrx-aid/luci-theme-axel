@@ -183,6 +183,7 @@ html[data-axel-theme] header.ax-header .ax-brand:hover,html[data-axel-theme] hea
 .ax-ticker-control:hover{background:#263141}
 html[data-axel-theme] .ax-header a.menu::after{content:'';width:6px;height:6px;border:0;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);vertical-align:middle;margin:0 0 4px 8px;text-indent:0}
 html[data-axel-theme] .cbi-value label.cbi-value-title{flex:0 0 220px;text-align:left;font-size:14px;line-height:1.5;font-weight:500;color:var(--ax-muted);padding-top:7px}
+html[data-axel-theme] .cbi-tabmenu,html[data-axel-theme] .tabs{background:none;background-image:none;padding:0;margin:0 0 18px;border-bottom:1px solid var(--ax-line)}
 html[data-axel-theme] .cbi-tabmenu>li,html[data-axel-theme] .tabs>li{height:auto;min-height:42px;max-width:100%;background:none;color:var(--ax-muted);border-radius:4px 4px 0 0;border:0;border-bottom:3px solid transparent;display:block;margin:0}
 html[data-axel-theme] .cbi-tabmenu>li>a,html[data-axel-theme] .tabs>li>a{padding:11px 15px;font-size:13px;line-height:1.4;color:var(--ax-muted);text-shadow:none;white-space:normal}
 html[data-axel-theme] .cbi-tabmenu>li.cbi-tab,html[data-axel-theme] .tabs>li.active{background:var(--ax-soft);border-bottom-color:var(--ax-accent)}
