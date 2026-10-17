@@ -24,6 +24,8 @@ jobs:
           node scripts/check-preview.mjs
           node scripts/check-atlas-preview.mjs
           node scripts/check-packages.mjs
+          node scripts/check-preferences.mjs
+          node scripts/check-telemetry.mjs
           bash -n scripts/build-sdk.sh
       - name: Linux build prerequisites
         run: |

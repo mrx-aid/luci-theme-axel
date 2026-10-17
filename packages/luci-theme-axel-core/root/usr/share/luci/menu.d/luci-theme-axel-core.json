@@ -1,0 +1,13 @@
+{
+  "admin/status/axel-overview": {
+    "title": "Network Control",
+    "order": 2,
+    "action": { "type": "view", "path": "axel/overview" },
+    "depends": { "acl": ["luci-theme-axel-telemetry"] }
+  },
+  "admin/system/axel-themes": {
+    "title": "AXEL / ATLAS Appearance",
+    "order": 58,
+    "action": { "type": "view", "path": "axel/settings" }
+  }
+}

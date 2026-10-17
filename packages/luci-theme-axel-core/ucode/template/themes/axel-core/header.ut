@@ -19,9 +19,9 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <meta name="darkreader-lock">
  <title>{{ striptags(`${boardinfo.hostname ?? 'OpenWrt'}${node?.title ? ` | ${_(node.title)}` : ''}`) }}</title>
- <script src="/luci-static/axel-core/mode.js"></script>
+ <script src="/luci-static/axel-core/mode.js?v=0.2.0-r4"></script>
  <link rel="stylesheet" href="/luci-static/bootstrap/cascade.css">
- <link rel="stylesheet" href="/luci-static/axel-core/theme.css">
+ <link rel="stylesheet" href="/luci-static/axel-core/theme.css?v=0.2.0-r4">
  <link rel="icon" href="/luci-static/axel-core/favicon.svg" sizes="any">
  {% if (node?.css): %}<link rel="stylesheet" href="{{ resource }}/{{ node.css }}">{% endif %}
  {% if (css): %}<style>{{ css }}</style>{% endif %}
@@ -32,28 +32,51 @@
  <a class="ax-skip" href="#maincontent">{{ _('Skip to content') }}</a>
  {% if (!blank_page): %}
  <div class="ax-utility">
-  <span class="ax-device">{{ striptags(boardinfo.hostname ?? 'OpenWrt') }}</span>
-  <div class="ax-ticker" aria-label="{{ _('Theme information') }}"><span>{{ atlas ? 'ATLAS · NETWORK CONTROL · HERITAGE EDITION · OPENWRT' : 'AXEL MESH · YOUR NETWORK, IN FOCUS · OPENWRT' }}</span></div>
-  <button class="ax-mode" type="button" data-ax-mode aria-label="{{ _('Toggle light / dark mode') }}">Light / Dark</button>
- </div>
- <header class="ax-header">
-  <a class="brand ax-brand" href="{{ dispatcher.build_url('admin/status/overview') }}" aria-label="{{ atlas ? 'ATLAS' : 'AXEL Mesh' }}">
-   {% if (atlas): %}<img src="/luci-static/atlas/atlas-logo-white.png" width="188" height="40" alt="ATLAS">{% else %}<span class="ax-mark" aria-hidden="true">A</span><span>AXEL <small>MESH</small></span>{% endif %}
-  </a>
-  <button class="ax-nav-toggle" type="button" aria-expanded="false" aria-controls="topmenu" data-ax-nav>{{ _('Menu') }}</button>
-  <ul class="nav" id="topmenu" style="display:none"></ul>
-  <div id="indicators" class="pull-right"></div>
+  <span class="ax-device">{{ striptags(boardinfo.hostname ?? 'OpenWrt') }} <span class="ax-interface-label">/ LuCI · OPENWRT INTERFACE</span></span>
+  <div class="ax-ticker" tabindex="0" aria-label="Технические показатели роутера"><span class="ax-ticker-fallback">Загрузка показателей…</span></div>
+  <button class="ax-ticker-control" type="button" data-ax-ticker aria-label="Приостановить бегущую строку" aria-pressed="false">Ⅱ</button>
+  <div class="ax-modes" role="group" aria-label="Режим оформления"><button type="button" data-ax-mode-value="light" aria-pressed="false">☀ Light</button><button type="button" data-ax-mode-value="dark" aria-pressed="false">☾ Dark</button></div>
   <details class="ax-account">
-   <summary aria-label="{{ _('Account menu') }}">{% if (atlas): %}<img src="/luci-static/atlas/preload.png" width="30" height="30" alt="">{% else %}<span class="ax-account-icon" aria-hidden="true">A</span>{% endif %}<span>LuCI</span><span class="ax-chevron" aria-hidden="true"></span></summary>
+   <summary aria-label="{{ _('Account menu') }}">{% if (atlas): %}<img src="/luci-static/atlas/preload.png" width="24" height="24" alt="">{% else %}<span class="ax-account-icon" aria-hidden="true">A</span>{% endif %}<span>LuCI</span><span class="ax-chevron" aria-hidden="true"></span></summary>
    <div class="ax-account-panel">
     <div class="ax-account-heading">{% if (atlas): %}<img src="/luci-static/atlas/preload.png" width="60" height="60" alt="">{% endif %}<div><strong>{{ atlas ? 'ATLAS' : 'AXEL Mesh' }}</strong><small>{{ striptags(boardinfo.hostname ?? 'OpenWrt') }}</small><span class="ax-role">{{ _('Router administration') }}</span></div></div>
+    <a href="{{ dispatcher.build_url('admin/system/axel-themes') }}">Настройки оформления</a>
     {% if (dispatcher.lookup('admin/system/admin')): %}<a href="{{ dispatcher.build_url('admin/system/admin') }}">{{ _('Administration') }}</a>{% endif %}
     {% if (dispatcher.lookup('admin/system/system')): %}<a href="{{ dispatcher.build_url('admin/system/system') }}">{{ _('System') }} · {{ _('Language and Style') }}</a>{% endif %}
     {% if (dispatcher.lookup('admin/status/overview')): %}<a href="{{ dispatcher.build_url('admin/status/overview') }}">{{ _('Overview') }}</a>{% endif %}
     <a class="ax-logout" href="{{ dispatcher.build_url('admin/logout') }}">{{ _('Logout') }}</a>
    </div>
   </details>
+ </div>
+ <header class="ax-header">
+  <a class="brand ax-brand" href="{{ dispatcher.build_url('admin/status/axel-overview') }}" aria-label="{{ atlas ? 'ATLAS' : 'AXEL Mesh' }}">
+   {% if (atlas): %}<span><img src="/luci-static/atlas/atlas-logo-white.png" width="188" height="40" alt="ATLAS"><small>NETWORK CONTROL</small></span>{% else %}<span class="ax-mark" aria-hidden="true">A</span><span>AXEL <small>MESH</small></span>{% endif %}
+  </a>
+  <a class="ax-overview-link" href="{{ dispatcher.build_url('admin/status/axel-overview') }}">ОБЗОР</a>
+  <button class="ax-nav-toggle" type="button" aria-expanded="false" aria-controls="topmenu" data-ax-nav>{{ _('Menu') }}</button>
+  <ul class="nav" id="topmenu" style="display:none"></ul>
+  <div id="indicators" class="pull-right"></div>
+  {% if (atlas): %}<button class="ax-panel-toggle" type="button" data-ax-panel aria-expanded="true" aria-controls="ax-sidebar">▥ Панель</button>{% endif %}
  </header>
+ {% if (atlas): %}
+ <div class="ax-atlas-shell">
+  <div class="ax-heritage-banner"><div class="ax-banner-title"><span>ATLAS ADMINISTRATING COMPLEX</span><strong>YOUR NETWORK. YOUR RULES.</strong></div><div class="ax-banner-end"><div><strong>OPENWRT</strong><small>LuCI / локальное управление</small></div><i aria-hidden="true">»</i></div></div>
+  <div class="ax-workspace">
+   <aside id="ax-sidebar" class="ax-sidebar" aria-label="Боковая панель ATLAS">
+    <section class="ax-side-group"><h2>Модули управления</h2><nav aria-label="Модули управления">
+     <a href="{{ dispatcher.build_url('admin/status/axel-overview') }}"><span aria-hidden="true">▦</span> Сводка</a>
+     {% if (dispatcher.lookup('admin/network/network')): %}<a href="{{ dispatcher.build_url('admin/network/network') }}"><span aria-hidden="true">⌘</span> Интерфейсы</a>{% endif %}
+     {% if (dispatcher.lookup('admin/network/wireless')): %}<a href="{{ dispatcher.build_url('admin/network/wireless') }}"><span aria-hidden="true">◉</span> Беспроводная сеть</a>{% endif %}
+     {% if (dispatcher.lookup('admin/vpn-tunneling/profiles')): %}<a href="{{ dispatcher.build_url('admin/vpn-tunneling/profiles') }}"><span aria-hidden="true">◇</span> VPN-Tunneling</a>{% endif %}
+     {% if (dispatcher.lookup('admin/system/system')): %}<a href="{{ dispatcher.build_url('admin/system/system') }}"><span aria-hidden="true">⚙</span> Система</a>{% endif %}
+     {% if (dispatcher.lookup('admin/status/syslog')): %}<a href="{{ dispatcher.build_url('admin/status/syslog') }}"><span aria-hidden="true">≡</span> Журнал событий</a>{% endif %}
+     <a href="{{ dispatcher.build_url('admin/system/axel-themes') }}"><span aria-hidden="true">◐</span> Оформление</a>
+     <a href="{{ dispatcher.build_url('admin/status/overview') }}"><span aria-hidden="true">▤</span> Штатная сводка LuCI</a>
+    </nav></section>
+    <section class="ax-side-group"><h2>Устройство</h2><div class="ax-side-device"><strong>{{ striptags(boardinfo.hostname ?? 'OpenWrt') }}</strong><small>{{ striptags(boardinfo.model ?? '') }}</small><dl><div><dt>OpenWrt</dt><dd>{{ striptags(boardinfo.release?.version ?? '—') }}</dd></div><div><dt>Оформление</dt><dd>ATLAS</dd></div></dl></div></section>
+    <p class="ax-side-note">Локальное управление<br>Вашей сетью.</p>
+   </aside>
+ {% endif %}
  <div id="maincontent" class="container">
   {% if (getuid() == 0 && getspnam('root')?.pwdp === ''): %}
   <div class="alert-message warning"><h4>{{ _('No password set!') }}</h4><p>{{ _('There is no password set on this router. Please configure a root password to protect the web interface.') }}</p>

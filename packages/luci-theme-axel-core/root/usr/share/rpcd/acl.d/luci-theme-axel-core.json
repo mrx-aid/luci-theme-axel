@@ -1,0 +1,12 @@
+{
+  "luci-theme-axel-telemetry": {
+    "description": "Read-only AXEL and ATLAS system dashboard and ticker",
+    "read": {
+      "ubus": {
+        "system": ["board", "info"],
+        "network.interface": ["dump"],
+        "luci-rpc": ["getWirelessDevices"]
+      }
+    }
+  }
+}
